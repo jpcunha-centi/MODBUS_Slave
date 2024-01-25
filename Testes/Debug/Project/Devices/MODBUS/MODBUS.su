@@ -1,0 +1,9 @@
+../Project/Devices/MODBUS/MODBUS.c:62:8:MODBUS__Initialize	24	static
+../Project/Devices/MODBUS/MODBUS.c:86:8:MODBUS__Send_Response	24	static
+../Project/Devices/MODBUS/MODBUS.c:103:8:MODBUS__Send_Command_Write	40	static
+../Project/Devices/MODBUS/MODBUS.c:126:6:MODBUS__Check_Receive	24	static
+../Project/Devices/MODBUS/MODBUS.c:133:8:MODBUS__Get_Command	32	static
+../Project/Devices/MODBUS/MODBUS.c:196:17:MODBUS__Calc_CRC	24	static
+../Project/Devices/MODBUS/MODBUS.c:221:13:MODBUS__Check_CRC	24	static
+../Project/Devices/MODBUS/MODBUS.c:239:15:COM__Write	24	static
+../Project/Devices/MODBUS/MODBUS.c:250:15:COM__Read	24	static

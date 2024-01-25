@@ -1,0 +1,13 @@
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:270:8:UART_1_RingBuffer__Initialize	1
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:401:8:UART_1_RingBuffer__Write	5
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:474:8:UART_1_RingBuffer__Read	7
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:552:8:UART_1_RingBuffer__SetTxCB	2
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:562:8:UART_1_RingBuffer__SetRxCB	2
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:572:8:UART_1_RingBuffer__GetTxFlag	1
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:582:8:UART_1_RingBuffer__GetRxFlag	1
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:592:8:UART_1_RingBuffer__GetRxRemainSize	2
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:609:8:UART_1_RingBuffer__GetTxRemainSize	2
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:626:6:UART_1_RingBuffer__ClearRxFIFO	1
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:633:6:UART_1_RingBuffer__ClearTxFIFO	1
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:657:10:HAL_UART_RxCpltCallback	3
+../Project/CeNTI_Library/HAL/COM/UART/RingBuffer/CeNTI_UART_1_RingBuffer.c:725:10:HAL_UART_TxCpltCallback	4

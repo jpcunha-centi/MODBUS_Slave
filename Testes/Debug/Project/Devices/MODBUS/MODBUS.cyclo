@@ -1,0 +1,9 @@
+../Project/Devices/MODBUS/MODBUS.c:62:8:MODBUS__Initialize	8
+../Project/Devices/MODBUS/MODBUS.c:86:8:MODBUS__Send_Response	2
+../Project/Devices/MODBUS/MODBUS.c:103:8:MODBUS__Send_Command_Write	2
+../Project/Devices/MODBUS/MODBUS.c:126:6:MODBUS__Check_Receive	2
+../Project/Devices/MODBUS/MODBUS.c:133:8:MODBUS__Get_Command	11
+../Project/Devices/MODBUS/MODBUS.c:196:17:MODBUS__Calc_CRC	4
+../Project/Devices/MODBUS/MODBUS.c:221:13:MODBUS__Check_CRC	2
+../Project/Devices/MODBUS/MODBUS.c:239:15:COM__Write	3
+../Project/Devices/MODBUS/MODBUS.c:250:15:COM__Read	3
