@@ -1,0 +1,15 @@
+../Project/Devices/MODBUS/MODBUS.c:133:8:MODBUS__Initialize	10
+../Project/Devices/MODBUS/MODBUS.c:165:15:MODBUS__ARRAYLIST_Function_Codes_Init	10
+../Project/Devices/MODBUS/MODBUS.c:200:15:MODBUS__ARRAYLIST_Registers_Init	6
+../Project/Devices/MODBUS/MODBUS.c:223:6:MODBUS__Check_Valid_Function_Code	2
+../Project/Devices/MODBUS/MODBUS.c:239:6:MODBUS__Check_Valid_Register_Address	2
+../Project/Devices/MODBUS/MODBUS.c:255:6:MODBUS__Check_Valid_Message	4
+../Project/Devices/MODBUS/MODBUS.c:271:6:MODBUS__Parser_Command	1
+../Project/Devices/MODBUS/MODBUS.c:405:6:MODBUS__Check_CRC	2
+../Project/Devices/MODBUS/MODBUS.c:426:17:MODBUS__Calc_CRC	4
+../Project/Devices/MODBUS/MODBUS.c:451:13:MODBUS__function_code_Cmp	2
+../Project/Devices/MODBUS/MODBUS.c:459:13:MODBUS__register_Cmp	2
+../Project/Devices/MODBUS/MODBUS.c:472:8:MODBUS__Send	2
+../Project/Devices/MODBUS/MODBUS.c:488:8:MODBUS__Receive	16
+../Project/Devices/MODBUS/MODBUS.c:586:15:COM__Write	3
+../Project/Devices/MODBUS/MODBUS.c:597:15:COM__Read	3

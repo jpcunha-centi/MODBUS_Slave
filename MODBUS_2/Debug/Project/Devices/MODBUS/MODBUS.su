@@ -1,0 +1,15 @@
+../Project/Devices/MODBUS/MODBUS.c:133:8:MODBUS__Initialize	32	static
+../Project/Devices/MODBUS/MODBUS.c:165:15:MODBUS__ARRAYLIST_Function_Codes_Init	24	static
+../Project/Devices/MODBUS/MODBUS.c:200:15:MODBUS__ARRAYLIST_Registers_Init	24	static
+../Project/Devices/MODBUS/MODBUS.c:223:6:MODBUS__Check_Valid_Function_Code	24	static
+../Project/Devices/MODBUS/MODBUS.c:239:6:MODBUS__Check_Valid_Register_Address	24	static
+../Project/Devices/MODBUS/MODBUS.c:255:6:MODBUS__Check_Valid_Message	16	static
+../Project/Devices/MODBUS/MODBUS.c:271:6:MODBUS__Parser_Command	24	static
+../Project/Devices/MODBUS/MODBUS.c:405:6:MODBUS__Check_CRC	24	static
+../Project/Devices/MODBUS/MODBUS.c:426:17:MODBUS__Calc_CRC	24	static
+../Project/Devices/MODBUS/MODBUS.c:451:13:MODBUS__function_code_Cmp	16	static
+../Project/Devices/MODBUS/MODBUS.c:459:13:MODBUS__register_Cmp	16	static
+../Project/Devices/MODBUS/MODBUS.c:472:8:MODBUS__Send	32	static
+../Project/Devices/MODBUS/MODBUS.c:488:8:MODBUS__Receive	40	static
+../Project/Devices/MODBUS/MODBUS.c:586:15:COM__Write	32	static
+../Project/Devices/MODBUS/MODBUS.c:597:15:COM__Read	32	static
