@@ -105,11 +105,11 @@ uint16_t vec_registers[REGISTERS_SIZE] = {};
 /* * Private Functions Prototypes		                                              * */
 /* ************************************************************************************ */
 
-static et_RET MODBUS__ARRAYLIST_Function_Codes_Init (void);
-static et_RET MODBUS__ARRAYLIST_Registers_Init (void);
+static et_RET MODBUS_Slave__ARRAYLIST_Function_Codes_Init (void);
+static et_RET MODBUS_Slave__ARRAYLIST_Registers_Init (void);
 
-bool MODBUS__Check_Valid_Function_Code (uint8_t function_code);
-bool MODBUS__Check_Valid_Register_Address (uint16_t register_addr);
+bool MODBUS_Slave__Check_Valid_Function_Code (uint8_t function_code);
+bool MODBUS_Slave__Check_Valid_Register_Address (uint16_t register_addr);
 
 static bool MODBUS__function_code_Cmp (const void *elem1, const void *elem2);
 static bool MODBUS__register_Cmp (const void *elem1, const void *elem2);
@@ -147,11 +147,12 @@ et_RET MODBUS__Initialize(et_MODBUS et_dev)
     CENTI_CHECK_RET(et_ret);
     ST_CONF[et_dev].gpio__Setlevel(MODBUS_MODE_READ);
 
-    et_ret = MODBUS__ARRAYLIST_Function_Codes_Init ();
+#if (defined(__MODBUS_AS_SLAVE__))
+    et_ret = MODBUS_Slave__ARRAYLIST_Function_Codes_Init ();
     CENTI_CHECK_RET(et_ret);
-
-	et_ret = MODBUS__ARRAYLIST_Registers_Init ();
+	et_ret = MODBUS_Slave__ARRAYLIST_Registers_Init ();
 	CENTI_CHECK_RET(et_ret);
+#endif /* (defined(__MODBUS_AS_SLAVE__)) */
 
     /* Indicate that initialization was successfully complete. */
     g_initialized[et_dev] = true;
@@ -162,7 +163,7 @@ et_RET MODBUS__Initialize(et_MODBUS et_dev)
 
 #if (defined(__MODBUS_AS_SLAVE__))
 
-static et_RET MODBUS__ARRAYLIST_Function_Codes_Init (void)
+static et_RET MODBUS_Slave__ARRAYLIST_Function_Codes_Init (void)
 {
 	et_RET et_ret = RET_UNEXPECTED;
 	uint8_t aux_function_code = 0;
@@ -197,7 +198,7 @@ static et_RET MODBUS__ARRAYLIST_Function_Codes_Init (void)
 	return RET_OK;
 }
 
-static et_RET MODBUS__ARRAYLIST_Registers_Init (void)
+static et_RET MODBUS_Slave__ARRAYLIST_Registers_Init (void)
 {
 	et_RET et_ret = RET_UNEXPECTED;
 	uint16_t aux_register = 0;
@@ -220,7 +221,7 @@ static et_RET MODBUS__ARRAYLIST_Registers_Init (void)
 	return RET_OK;
 }
 
-bool MODBUS__Check_Valid_Function_Code (uint8_t function_code)
+bool MODBUS_Slave__Check_Valid_Function_Code (uint8_t function_code)
 {
 	et_RET et_ret = RET_UNEXPECTED;
 	size_t aux = 0;
@@ -236,7 +237,7 @@ bool MODBUS__Check_Valid_Function_Code (uint8_t function_code)
 	}
 }
 
-bool MODBUS__Check_Valid_Register_Address (uint16_t register_addr)
+bool MODBUS_Slave__Check_Valid_Register_Address (uint16_t register_addr)
 {
 	et_RET et_ret = RET_UNEXPECTED;
 	size_t aux = 0;
@@ -252,23 +253,23 @@ bool MODBUS__Check_Valid_Register_Address (uint16_t register_addr)
 	}
 }
 
-bool MODBUS__Check_Valid_Message (uint8_t *MODBUS_Msg, uint8_t size)
+bool MODBUS_Slave__Check_Valid_Message (uint8_t *MODBUS_Msg, uint8_t size)
 {
 	if (!MODBUS__Check_CRC(MODBUS_Msg, size))
 	{
 		return false;
 	}
-	if (!MODBUS__Check_Valid_Function_Code(MODBUS_Msg[1])){
+	if (!MODBUS_Slave__Check_Valid_Function_Code(MODBUS_Msg[1])){
 		return false;
 	}
-	if (!MODBUS__Check_Valid_Register_Address((uint16_t)((MODBUS_Msg[3] << 8) + MODBUS_Msg[4])))
+	if (!MODBUS_Slave__Check_Valid_Register_Address((uint16_t)((MODBUS_Msg[2] << 8) + MODBUS_Msg[3])))
 	{
 		return false;
 	}
 	return true;
 }
 
-void MODBUS__Parser_Command (uint8_t *MODBUS_Msg, st_MODBUS_COMMAND *command)
+void MODBUS_Slave__Parser_Command (uint8_t *MODBUS_Msg, st_MODBUS_COMMAND *command)
 {
 	uint8_t idx = 0;
 
@@ -283,7 +284,7 @@ void MODBUS__Parser_Command (uint8_t *MODBUS_Msg, st_MODBUS_COMMAND *command)
 
 #elif (defined(__MODBUS_AS_MASTER__))
 
-et_RET MODBUS__Send_Command(et_MODBUS et_dev, st_MODBUS_COMMAND command)
+et_RET MODBUS_Master__Send_Command(et_MODBUS et_dev, st_MODBUS_COMMAND command)
 {
     et_RET et_ret = RET_UNEXPECTED;
     uint8_t vec_command[MODBUS_MAX_SIZE] = {};
@@ -307,7 +308,7 @@ et_RET MODBUS__Send_Command(et_MODBUS et_dev, st_MODBUS_COMMAND command)
     return RET_OK;
 }
 
-et_RET MODBUS__Send_Command_Write(et_MODBUS et_dev, st_MODBUS_COMMAND_WRITE command)
+et_RET MODBUS_Master__Send_Command_Write(et_MODBUS et_dev, st_MODBUS_COMMAND_WRITE command)
 {
     et_RET et_ret = RET_UNEXPECTED;
     uint8_t vec_command[MODBUS_MAX_SIZE] = {};
@@ -331,7 +332,7 @@ et_RET MODBUS__Send_Command_Write(et_MODBUS et_dev, st_MODBUS_COMMAND_WRITE comm
     return RET_OK;
 }
 
-et_RET MODBUS__Get_Response(et_MODBUS et_dev, st_MODBUS_RESPONSE *response)
+et_RET MODBUS_Master__Get_Response(et_MODBUS et_dev, st_MODBUS_RESPONSE *response)
 {
     et_RET et_ret = RET_UNEXPECTED;
     uint8_t vec_response[MODBUS_MAX_SIZE] = {};
@@ -380,7 +381,7 @@ et_RET MODBUS__Get_Response(et_MODBUS et_dev, st_MODBUS_RESPONSE *response)
     return RET_OK;
 }
 
-et_RET MODBUS__Get_Echo(et_MODBUS et_dev)
+et_RET MODBUS_Master__Get_Echo(et_MODBUS et_dev)
 {
     et_RET et_ret = RET_UNEXPECTED;
     uint8_t vec_echo[MODBUS_MAX_SIZE] = {};

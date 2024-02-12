@@ -27,7 +27,7 @@
 #define MODBUS_MODE_READ (LEVEL_LOW)
 #define MODBUS_MODE_WRITE (LEVEL_HIGH)
 
-#define DEVICE_ADDR = 0xAB;
+#define DEVICE_ADDR  (0xAB)
 
 
 

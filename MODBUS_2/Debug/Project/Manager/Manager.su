@@ -1,2 +1,4 @@
-../Project/Manager/Manager.c:105:8:Manager__Initialize	24	static
-../Project/Manager/Manager.c:124:8:Manager__Loop	32	static
+../Project/Manager/Manager.c:114:8:Manager__Initialize	24	static
+../Project/Manager/Manager.c:133:8:Manager__Loop	32	static
+../Project/Manager/Manager.c:250:13:MANAGER__clear_vec	24	static
+../Project/Manager/Manager.c:256:13:MANAGER_MODBUS__Build_Response_Msg	32	static
